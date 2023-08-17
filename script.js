@@ -1,12 +1,12 @@
 'use strict';
 
 let rndNUmber = Math.trunc(Math.random() * 20) + 1
-document.querySelector(".number").textContent = rndNUmber
+// document.querySelector(".number").textContent = ""
 
 let score = 20;
-let highScore = 0 ;
+let highScore = 0;
 
-const displayMessage = (message)=>{
+const displayMessage = (message) => {
     document.querySelector(".message").textContent = message
 }
 
@@ -17,7 +17,7 @@ const clickFun = () => {
     if (!guess) {
         displayMessage("no Message")
     }
-    else if(guess === rndNUmber){
+    else if (guess === rndNUmber) {
         displayMessage("Right Guess")
 
         document.querySelector(".number").textContent = rndNUmber
@@ -25,28 +25,28 @@ const clickFun = () => {
         document.querySelector("body").style.backgroundColor = "green"
         document.querySelector(".number").style.width = "30rem"
 
-        if(score >= highScore){
+        if (score >= highScore) {
             highScore = score
         }
         document.querySelector(".highscore").textContent = highScore;
     }
-    else if (guess !== rndNUmber){
+    else if (guess !== rndNUmber) {
 
-        if(score >1){
+        if (score > 1) {
             (guess > rndNUmber) ? displayMessage("Too High!!") : displayMessage("Too Low!!")
             score--
             document.querySelector(".score").textContent = score;
-        }else{
+        } else {
             displayMessage("Game Over!!")
             document.querySelector(".score").textContent = 0;
         }
     }
 }
 
-const clickAgain = ()=>{
+const clickAgain = () => {
     score = 20;
     rndNUmber = Math.trunc(Math.random() * 20) + 1
-    
+
     document.querySelector(".score").textContent = score
 
     document.querySelector(".number").textContent = '?'
